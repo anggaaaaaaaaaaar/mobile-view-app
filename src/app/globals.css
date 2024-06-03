@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* TABS */
+.navtab .ant-tabs-nav .ant-tabs-nav-wrap .ant-tabs-nav-list {
+  width: 100%;
+}
+
+.navtab .ant-tabs-nav .ant-tabs-nav-wrap .ant-tabs-nav-list .ant-tabs-tab {
+  flex: 1;
+}
+
+.navtab
+  .ant-tabs-nav
+  .ant-tabs-nav-wrap
+  .ant-tabs-nav-list
+  .ant-tabs-tab
+  .ant-tabs-tab-btn {
+  flex: 1;
+}

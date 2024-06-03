@@ -1,8 +1,10 @@
+import { BottomNav, Navbar } from "@/components";
+import { AuthProvider } from "@/hooks/useAuth";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { Navbar } from "@/components";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +22,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-gradient-primary`}>
         <AntdRegistry>
-          <Navbar />
-          {children}
+          <div className="flex min-h-screen flex-col items-center justify-between">
+            <div className="w-full max-w-md flex-grow flex flex-col">
+              <AuthProvider>
+                <Providers>
+                  <Navbar />
+                  <BottomNav>{children}</BottomNav>
+                </Providers>
+              </AuthProvider>
+            </div>
+          </div>
         </AntdRegistry>
       </body>
     </html>

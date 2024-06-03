@@ -11,11 +11,15 @@ const theme: ThemeConfig = {
     },
     Input: {
       activeBg: "transparent",
-
       colorText: "white",
       colorBgContainer: "transparent",
       colorBgBase: "transparent",
       colorTextPlaceholder: "rgba(255, 255, 255, 0.4)",
+    },
+    Tabs: {
+      inkBarColor: "#ffffff",
+      itemColor: "#ff00ff",
+      itemSelectedColor: "%00ff00",
     },
     Typography: {
       colorText: "#fff",

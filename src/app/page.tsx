@@ -1,13 +1,16 @@
-import Image from "next/image";
-import { AuthPage } from "./pages";
 import { ConfigProvider } from "antd";
-import theme from "@/app/theme";
+import AuthPage from "./auth/page";
+import { Metadata } from "next";
+import theme from "@/theme";
 
+export const metadata: Metadata = {
+  title: "App",
+};
 export default function Home() {
   return (
     <ConfigProvider theme={theme}>
-      <main className="flex min-h-screen flex-col items-center justify-between">
-        <section className="h-screen w-full max-w-md">
+      <main>
+        <section className="h-screen">
           <AuthPage />
         </section>
       </main>
