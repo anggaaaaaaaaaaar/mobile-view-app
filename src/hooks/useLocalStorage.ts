@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Function } from "@/utils";
 
 export const useLocalStorage = (keyName: string, defaultValue: any) => {
-  const ttl = 86400000 * 1; // days
+  const ttl = 86400000 * (2 / 24); // days
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const value = Function.getWithExpiry(keyName);

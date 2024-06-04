@@ -1,5 +1,5 @@
 "use client";
-import { About, AboutForm } from "@/components/profile";
+import { About, AboutForm, Interest } from "@/components/profile";
 import { ProfileService } from "@/service";
 import { IProfileData } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
@@ -7,6 +7,7 @@ import { Image } from "antd";
 import { useForm } from "antd/es/form/Form";
 import Paragraph from "antd/es/typography/Paragraph";
 import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { PiPencilSimpleLine } from "react-icons/pi";
 
@@ -24,6 +25,7 @@ const initData: IProfileData = {
 };
 
 const Index = () => {
+  const router = useRouter();
   const [formAbout] = useForm();
 
   const [profile, setProfile] = useState<IProfileData>(initData);
@@ -108,11 +110,11 @@ const Index = () => {
 
       <div className="relative bg-slate-800 px-5 py-2 rounded-xl">
         <Paragraph className="text-white font-bold">Interest</Paragraph>
-        <Paragraph className="text-gray-400 font-bold">
-          Add in your interest to find better match
-        </Paragraph>
-
-        <button className="absolute top-1 right-2">
+        <Interest interests={profile.interests} />
+        <button
+          className="absolute top-1 right-2"
+          onClick={() => router.push("/me/interests")}
+        >
           <PiPencilSimpleLine className="text-white" size={20} />
         </button>
       </div>

@@ -2,12 +2,15 @@
 import React from "react";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import Text from "antd/es/typography/Text";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Paragraph from "antd/es/typography/Paragraph";
 import { BsThreeDots } from "react-icons/bs";
 
 const Index = () => {
   const router = useRouter();
+  const pathname = usePathname();
+
+  if (pathname.includes("interest")) return;
 
   return (
     <div className="w-full max-w-md h-12 flex items-center justify-between px-2 py-4">

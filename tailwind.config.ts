@@ -25,6 +25,8 @@ const config: Config = {
           "linear-gradient(220deg, #1F4247 10%, #0D1D23 50%, #09141A 100%)",
         "gradient-gold":
           "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
+        "gradient-blue":
+          "linear-gradient(220deg, #ABFFFD 20%, #4599DB 50%, #AADAFF 80%)",
       },
       dropShadow: {
         "3xl": "0 35px 35px rgba(0, 0, 0, 0.25)",

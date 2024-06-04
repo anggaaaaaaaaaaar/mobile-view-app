@@ -14,7 +14,7 @@ const LabelData: React.FC<ILabelData> = ({ title, value }) => (
   </Paragraph>
 );
 
-const About = (props: IProfileData) => {
+const About: React.FC<IProfileData> = (props) => {
   if (!props.email)
     return (
       <Paragraph className="text-gray-400 font-bold">
