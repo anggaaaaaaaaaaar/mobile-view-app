@@ -2,8 +2,12 @@
 import { ConfigProvider, Tabs, TabsProps } from "antd";
 import Paragraph from "antd/es/typography/Paragraph";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { FaRegHeart } from "react-icons/fa";
+import { GiMeditation } from "react-icons/gi";
+import { IoPersonCircleOutline } from "react-icons/io5";
 import { LuMessagesSquare } from "react-icons/lu";
+import { RiHeartsLine } from "react-icons/ri";
 
 interface ILabelTab {
   icon: React.ReactNode;
@@ -29,9 +33,12 @@ const Index = ({ children }: any) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  console.log("pathname ", pathname);
-
   const [tabSelected, setTabSelected] = useState<string>("message");
+
+  useEffect(() => {
+    setTabSelected(pathname.split("/")[1]);
+  }, [pathname]);
+
   const onChange = (key: string) => {
     setTabSelected(key);
     router.push(`/${key}`);
@@ -39,13 +46,15 @@ const Index = ({ children }: any) => {
 
   const items: TabsProps["items"] = [
     {
-      key: "message",
+      key: "messages",
       label: (
         <LabelTab
           icon={
             <LuMessagesSquare
               size={24}
-              className="text-white bg-clip-text text-transparent"
+              className={
+                tabSelected === "messages" ? "text-gold" : "text-gray-400"
+              }
             />
           }
           label="Messages"
@@ -59,9 +68,11 @@ const Index = ({ children }: any) => {
       label: (
         <LabelTab
           icon={
-            <LuMessagesSquare
+            <GiMeditation
               size={24}
-              className="text-white bg-clip-text text-transparent"
+              className={
+                tabSelected === "metaphysics" ? "text-gold" : "text-gray-400"
+              }
             />
           }
           label="Metaphysics"
@@ -75,9 +86,11 @@ const Index = ({ children }: any) => {
       label: (
         <LabelTab
           icon={
-            <LuMessagesSquare
+            <RiHeartsLine
               size={24}
-              className="text-white bg-clip-text text-transparent"
+              className={
+                tabSelected === "matches" ? "text-gold" : "text-gray-400"
+              }
             />
           }
           label="Matches"
@@ -91,9 +104,11 @@ const Index = ({ children }: any) => {
       label: (
         <LabelTab
           icon={
-            <LuMessagesSquare
+            <FaRegHeart
               size={24}
-              className="text-white bg-clip-text text-transparent"
+              className={
+                tabSelected === "likes" ? "text-gold" : "text-gray-400"
+              }
             />
           }
           label="Likes"
@@ -107,9 +122,9 @@ const Index = ({ children }: any) => {
       label: (
         <LabelTab
           icon={
-            <LuMessagesSquare
+            <IoPersonCircleOutline
               size={24}
-              className="text-white bg-clip-text text-transparent"
+              className={tabSelected === "me" ? "text-gold" : "text-gray-400"}
             />
           }
           label="Me"
@@ -120,6 +135,7 @@ const Index = ({ children }: any) => {
     },
   ];
 
+  if (pathname === "/" || pathname === "/auth") return children;
   return (
     <ConfigProvider
       theme={{
@@ -131,6 +147,8 @@ const Index = ({ children }: any) => {
               "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
             itemActiveColor:
               "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
+
+            padding: 5,
           },
         },
       }}
@@ -141,10 +159,8 @@ const Index = ({ children }: any) => {
         tabPosition="bottom"
         onChange={onChange}
         className="flex-grow"
-        // indicator={{
-        //     size: 30,
-        //   align: "end",
-        // }}
+        activeKey={tabSelected}
+        tabBarGutter={10}
       />
     </ConfigProvider>
   );

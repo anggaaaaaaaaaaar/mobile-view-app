@@ -1,6 +1,6 @@
 "use client";
 import { useAuth } from "@/hooks";
-import { AuthService } from "@/service/indes";
+import { AuthService } from "@/service";
 import { IPayloadLogin } from "@/types/types";
 import { useMutation } from "@tanstack/react-query";
 import { Button, Form, Input, notification } from "antd";
@@ -34,7 +34,7 @@ const Index = () => {
             email: value.email,
             username: value.username,
           });
-          router.push("/message");
+          router.push("/messages");
         }
       })
       .catch((err) => {

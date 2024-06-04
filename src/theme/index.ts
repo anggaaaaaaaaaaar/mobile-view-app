@@ -9,11 +9,33 @@ const theme: ThemeConfig = {
     Button: {
       colorPrimary: "#4599DB",
     },
+    DatePicker: {
+      colorTextBase: "#ff55ff",
+      // colorText: "white",
+      colorBgContainer: "transparent",
+      colorTextPlaceholder: "rgba(255, 255, 255, 0.4)",
+    },
+    Form: {
+      labelColor: "rgba(255, 255, 255, 0.35)",
+    },
     Input: {
-      activeBg: "transparent",
       colorText: "white",
+      activeBg: "transparent",
       colorBgContainer: "transparent",
       colorBgBase: "transparent",
+      colorTextPlaceholder: "rgba(255, 255, 255, 0.4)",
+      colorTextDisabled: "rgba(255, 255, 255, 0.7)",
+    },
+    InputNumber: {
+      colorText: "white",
+      activeBg: "transparent",
+      colorBgContainer: "transparent",
+      colorBgBase: "transparent",
+      colorTextPlaceholder: "rgba(255, 255, 255, 0.4)",
+    },
+    Select: {
+      colorText: "white",
+      selectorBg: "transparent",
       colorTextPlaceholder: "rgba(255, 255, 255, 0.4)",
     },
     Tabs: {
@@ -23,6 +45,7 @@ const theme: ThemeConfig = {
     },
     Typography: {
       colorText: "#fff",
+      margin: 0,
     },
   },
 };

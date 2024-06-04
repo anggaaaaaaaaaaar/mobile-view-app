@@ -9,6 +9,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "open-close": "transition: height 0.5s ease-in-out;",
+      },
+      colors: {
+        gold: "#FFD700",
+        "slate-1": "#0E191F",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

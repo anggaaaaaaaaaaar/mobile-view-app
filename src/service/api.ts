@@ -1,3 +1,4 @@
+import { Function } from "@/utils";
 import axios, { AxiosRequestConfig, AxiosRequestHeaders } from "axios";
 
 interface PayloadType {
@@ -16,6 +17,7 @@ interface ApiType {
 interface HeadersIntf {
   Authorization?: string;
   "Content-Type"?: string;
+  "x-access-token"?: string;
 }
 
 const POST = "post";
@@ -36,10 +38,21 @@ export const api = ({ url, method, body, headers }: ApiType) => {
 };
 
 const apiRequest = async ({ method, url, payload = {} }: ApiType) => {
+  const user = JSON.parse(Function.getWithExpiry("user"));
+
   let body: PayloadType | null = null;
   let headers: HeadersIntf = {
     "Content-Type": "application/json",
   };
+
+  const token = user?.access_token || "";
+
+  if (token) {
+    headers = {
+      ...headers,
+      "x-access-token": token,
+    };
+  }
 
   if (payload) {
     body = payload;

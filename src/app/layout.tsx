@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+import { ConfigProvider } from "antd";
+import theme from "@/theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,16 +24,18 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-gradient-primary`}>
         <AntdRegistry>
-          <div className="flex min-h-screen flex-col items-center justify-between">
-            <div className="w-full max-w-md flex-grow flex flex-col">
-              <AuthProvider>
-                <Providers>
-                  <Navbar />
-                  <BottomNav>{children}</BottomNav>
-                </Providers>
-              </AuthProvider>
+          <ConfigProvider theme={theme}>
+            <div className="flex min-h-screen flex-col items-center justify-between">
+              <div className="w-full max-w-md flex-grow flex flex-col">
+                <AuthProvider>
+                  <Providers>
+                    <Navbar />
+                    <BottomNav>{children}</BottomNav>
+                  </Providers>
+                </AuthProvider>
+              </div>
             </div>
-          </div>
+          </ConfigProvider>
         </AntdRegistry>
       </body>
     </html>

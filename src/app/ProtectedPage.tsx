@@ -17,7 +17,6 @@ const ProtectedPage = ({ children }: any) => {
   }, [router]);
 
   if (user?.access_token) {
-    // login(JSON.parse(users));
     return children;
   }
 
