@@ -19,3 +19,7 @@
   .ant-tabs-tab-btn {
   flex: 1;
 }
+
+.custom-pw .ant-input-suffix .anticon {
+  color: "#ffffff" !important;
+}

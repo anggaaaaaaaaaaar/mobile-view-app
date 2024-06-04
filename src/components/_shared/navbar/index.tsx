@@ -5,8 +5,10 @@ import Text from "antd/es/typography/Text";
 import { usePathname, useRouter } from "next/navigation";
 import Paragraph from "antd/es/typography/Paragraph";
 import { BsThreeDots } from "react-icons/bs";
+import { useAuth } from "@/hooks";
 
 const Index = () => {
+  const { user } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -22,8 +24,14 @@ const Index = () => {
         <Text className="!text-white">Back</Text>
       </button>
 
-      <Paragraph className="text-white font-bold m-0">@JohnDOe</Paragraph>
-      <BsThreeDots className="text-white" size={20} />
+      {pathname !== "/" && (
+        <>
+          <Paragraph className="text-white font-bold m-0">
+            {user?.username}
+          </Paragraph>
+          <BsThreeDots className="text-white" size={20} />
+        </>
+      )}
     </div>
   );
 };

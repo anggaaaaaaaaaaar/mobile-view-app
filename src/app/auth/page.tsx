@@ -59,7 +59,10 @@ const Index = () => {
           name="password"
           rules={[{ required: true, message: "Field is required" }]}
         >
-          <Password placeholder="Enter Password" className="h-12" />
+          <Password
+            placeholder="Enter Password"
+            className="h-12 bg-transparent text-white custom-pw placeholder:text-white/35"
+          />
         </FormItem>
         <Button
           loading={isPending}

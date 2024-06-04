@@ -39,9 +39,13 @@ const theme: ThemeConfig = {
       colorTextPlaceholder: "rgba(255, 255, 255, 0.4)",
     },
     Tabs: {
-      inkBarColor: "#ffffff",
-      itemColor: "#ff00ff",
-      itemSelectedColor: "%00ff00",
+      padding: 10,
+      inkBarColor:
+        "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
+      itemColor:
+        "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
+      itemActiveColor:
+        "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
     },
     Typography: {
       colorText: "#fff",

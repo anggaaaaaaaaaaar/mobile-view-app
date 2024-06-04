@@ -137,32 +137,15 @@ const Index = ({ children }: any) => {
 
   if (pathname === "/" || pathname === "/auth") return children;
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Tabs: {
-            inkBarColor:
-              "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
-            itemColor:
-              "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
-            itemActiveColor:
-              "linear-gradient(90deg, #94783E 5%, #F3EDA6 30%, #F8FAE5 35%, #FFE2BE 56%, #D5BE88 70%, #F8FAE5 80%, #D5BE88 90%)",
-
-            padding: 5,
-          },
-        },
-      }}
-    >
-      <Tabs
-        rootClassName="navtab"
-        items={items}
-        tabPosition="bottom"
-        onChange={onChange}
-        className="flex-grow"
-        activeKey={tabSelected}
-        tabBarGutter={10}
-      />
-    </ConfigProvider>
+    <Tabs
+      rootClassName="navtab"
+      items={items}
+      tabPosition="bottom"
+      onChange={onChange}
+      className="flex-grow"
+      activeKey={tabSelected}
+      tabBarGutter={0}
+    />
   );
 };
 

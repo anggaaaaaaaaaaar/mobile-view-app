@@ -1,5 +1,6 @@
 "use client";
 import { About, AboutForm, Interest } from "@/components/profile";
+import { useAuth } from "@/hooks";
 import { ProfileService } from "@/service";
 import { IProfileData } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
@@ -25,6 +26,7 @@ const initData: IProfileData = {
 };
 
 const Index = () => {
+  const { user, login } = useAuth();
   const router = useRouter();
   const [formAbout] = useForm();
 
@@ -47,6 +49,7 @@ const Index = () => {
         birthday: dayjs(data.data.birthday),
       });
       setProfile(data?.data);
+      login({ ...user, ...data?.data });
     }
   }, [data.data]);
 

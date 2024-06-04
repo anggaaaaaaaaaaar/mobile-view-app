@@ -43,13 +43,11 @@ export const AuthProvider = ({ children }: Props) => {
   // call this function when you want to authenticate the user
   const login = async (data: any, ttl: any = null) => {
     setUser(data, ttl);
-    router.push("/");
   };
 
   // call this function to sign out logged in user
   const logout = () => {
     setUser(null);
-    router.push("/");
   };
 
   const value = useMemo(
